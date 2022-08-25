@@ -1,0 +1,30 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 5000               #tiempo de demora en responder "5 segundos"
+  cache:
+    redis:
+      time-to-live: 30000       #tiempo de vida de la data en redis "30 segundos" tiene por ahora
+    type: redis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/northwind?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: mysql
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      dialect: org.hibernate.dialect.MySQL5Dialect
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+
+server:
+  port: 9001
